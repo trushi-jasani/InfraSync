@@ -1,4 +1,4 @@
-# InfraSync  - <sub>ongoing</sub>
+## InfraSync  - <sub>ongoing</sub>
 
 **Unified Control for Buildings and Facilities**
 
