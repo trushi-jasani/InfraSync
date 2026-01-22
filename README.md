@@ -1,4 +1,5 @@
-## InfraSync  - <sub>ongoing</sub>
+## InfraSync ![Status](https://img.shields.io/badge/status-ongoing-yellow)
+
 
 **Unified Control for Buildings and Facilities**
 
