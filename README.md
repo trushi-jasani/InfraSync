@@ -1,4 +1,5 @@
-# InfraSync  
+# InfraSync  - working
+
 **Unified Control for Buildings and Facilities**
 
 InfraSync is a full-stack **facility management platform** that centralizes building operations including maintenance, billing, amenities, and assets into one secure, data-driven system.
