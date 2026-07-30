@@ -1,168 +1,521 @@
+# 🏢 InfraSync – Apartment Management System
 
-# InfraSync – Facility Management System 🏢⚡
+[![React](https://img.shields.io/badge/Frontend-React.js-61DAFB?logo=react&logoColor=white)](https://react.dev/)
+[![Node.js](https://img.shields.io/badge/Backend-Node.js-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Express.js](https://img.shields.io/badge/Framework-Express.js-000000?logo=express&logoColor=white)](https://expressjs.com/)
+[![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-4169E1?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[![Node.js](https://img.shields.io/badge/Node.js-v18.x-green.svg)](https://nodejs.org/)
-[![Express.js](https://img.shields.io/badge/Express.js-v4.x-black.svg)](https://expressjs.com/)
-[![React](https://img.shields.io/badge/React-v18.x-blue.svg)](https://reactjs.org/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-v15.x-blue.svg)](https://www.postgresql.org/)
-[![JWT](https://img.shields.io/badge/JWT-Secure-orange.svg)](https://jwt.io/)
+InfraSync is a **full-stack Apartment Management System** developed to simplify residential society operations by providing a centralized platform for administrators, managers, and residents.
 
-InfraSync is an enterprise-grade, full-stack facility management system built to streamline multi-tenant facility scheduling, resource allocation, asset tracking, and issue reporting. The platform is architected with a heavily normalized PostgreSQL database schema (15+ tables) and robust RESTful APIs delivering sub-100ms response latencies.
+The application enables apartment management, resident management, maintenance tracking, visitor management, parking allocation, and amenity booking through a secure role-based web application.
 
----
-
-## 🌟 Key Features
-
-- **🔐 Role-Based Access Control (RBAC):** Granular middleware authentication with JSON Web Tokens (JWT) distinguishing between Administrators, Managers, and Standard Users.
-- **📊 Interactive Admin Dashboard:** Real-time metrics for asset performance, maintenance schedules, and resource usage tracking.
-- **⚡ Sub-100ms RESTful Endpoints:** Optimized database queries, strategic indexing, and streamlined routing for minimal network latency.
-- **🗄️ Enterprise-Grade Database Architecture:** Normalized PostgreSQL database with 15+ relational tables, complex constraints, and transactional safety guarantees.
-- **🛠️ Automated Maintenance Ticketing:** Integrated workflow allowing users to raise, assign, track, and update facility maintenance tickets.
+Built using **React.js, Node.js, Express.js, PostgreSQL, and JWT Authentication**, InfraSync follows a scalable three-tier architecture with a normalized relational database and secure RESTful APIs.
 
 ---
 
-## 🛠️ Tech Stack
+# ✨ Features
 
-- **Frontend:** React.js, Tailwind CSS / Modern CSS, Axios, React Router
-- **Backend:** Node.js, Express.js
-- **Database & ORM:** PostgreSQL, SQL / Knex.js / Prisma
-- **Authentication & Security:** JSON Web Tokens (JWT), bcrypt hashing, CORS configuration
-- **API Testing & Tools:** Postman, MySQL Workbench / pgAdmin, Git
+## 🔐 Authentication & Authorization
+
+- JWT Authentication
+- Role-Based Access Control (Admin, Manager, Resident)
+- Protected API Routes
+- Password Encryption using bcrypt
 
 ---
 
-## 🏗️ Database Architecture
+## 👥 Resident Management
 
-InfraSync's backend is powered by a normalized PostgreSQL schema designed to scale safely:
+- Register Residents
+- Manage Resident Profiles
+- Apartment Allocation
+- Occupancy Tracking
 
+---
+
+## 🏢 Apartment Management
+
+- Add/Edit/Delete Apartments
+- Building & Floor Management
+- Flat Availability Status
+- Apartment Information Dashboard
+
+---
+
+## 🛠 Maintenance Management
+
+- Raise Maintenance Requests
+- Assign Maintenance Staff
+- Track Request Status
+- Update Completed Requests
+
+---
+
+## 🚗 Visitor Management
+
+- Visitor Registration
+- Entry & Exit Logs
+- Resident Approval
+- Visitor History
+
+---
+
+## 🚘 Parking Management
+
+- Allocate Parking Slots
+- Vehicle Registration
+- Parking Availability Tracking
+
+---
+
+## 📅 Amenity Booking
+
+- Book Community Hall
+- Book Gym
+- Book Garden
+- Prevent Double Bookings
+
+---
+
+## 📢 Notice Board
+
+- Society Announcements
+- Event Notifications
+- Emergency Notices
+
+---
+
+## 📊 Admin Dashboard
+
+- Total Apartments
+- Total Residents
+- Maintenance Statistics
+- Visitor Analytics
+- Occupancy Reports
+
+---
+
+# 🛠 Tech Stack
+
+## Frontend
+
+- React.js
+- React Router
+- Axios
+- CSS / Tailwind CSS
+
+## Backend
+
+- Node.js
+- Express.js
+
+## Database
+
+- PostgreSQL
+
+## Authentication
+
+- JSON Web Tokens (JWT)
+- bcrypt
+
+## Tools
+
+- Git
+- GitHub
+- Postman
+- pgAdmin
+
+---
+
+# 🏗 Project Architecture
 
 ```
-
-[Users] <---> [User_Roles]
-|
-+---> [Tickets] <---> [Asset_Inventory] <---> [Facility_Locations]
-|
-+---> [Bookings] <---> [Resource_Schedules]
-
+                 React.js Frontend
+                        │
+                 Axios HTTP Requests
+                        │
+               Express.js REST APIs
+                        │
+        Authentication Middleware (JWT)
+                        │
+          Controllers → Services → Models
+                        │
+                  PostgreSQL Database
 ```
 
-### Database Highlights:
-- **15+ Relational Tables** handling multi-tenant resource data.
-- **Strict Foreign Key Constraints & Cascades** for data consistency.
-- **Indexed Primary & Foreign Keys** to keep query execution times consistently low under high loads.
+---
+
+# 🗄 Database Architecture
+
+```
+Users
+│
+├── Roles
+│
+├── Apartments
+│      │
+│      ├── Buildings
+│      ├── Floors
+│      └── Residents
+│
+├── Maintenance Requests
+│
+├── Visitors
+│
+├── Parking
+│
+├── Amenity Bookings
+│
+└── Notices
+```
+
+### Database Highlights
+
+- 15+ Normalized Tables
+- Foreign Key Constraints
+- ON DELETE CASCADE
+- Transaction Support
+- Indexed Frequently Queried Columns
+- ACID Compliant Design
 
 ---
 
-## 🚀 Getting Started
+# 📂 Folder Structure
 
-Follow these instructions to set up and run InfraSync on your local machine.
-
-### Prerequisites
-- [Node.js](https://nodejs.org/) (v18 or higher)
-- [PostgreSQL](https://www.postgresql.org/) (v14 or higher)
-- [Git](https://git-scm.com/)
+```
+InfraSync
+│
+├── client
+│   ├── src
+│   ├── components
+│   ├── pages
+│   ├── services
+│   └── assets
+│
+├── server
+│   ├── controllers
+│   ├── models
+│   ├── routes
+│   ├── middleware
+│   ├── config
+│   ├── database
+│   └── utils
+│
+├── package.json
+├── README.md
+└── .env
+```
 
 ---
 
-### 1. Clone the Repository
+# 🚀 Getting Started
+
+## Prerequisites
+
+- Node.js (v18+)
+- PostgreSQL
+- Git
+
+---
+
+## Clone Repository
 
 ```bash
-git clone [https://github.com/trushi-jasani/InfraSync.git](https://github.com/trushi-jasani/InfraSync.git)
-cd InfraSync
+git clone https://github.com/trushi-jasani/InfraSync.git
 
+cd InfraSync
 ```
 
 ---
 
-### 2. Environment Variables Configuration
+# Environment Variables
 
-Create a `.env` file in the root directory (or inside server directory) with the following key-value pairs:
+Create a `.env` file inside the **server** folder.
 
 ```env
 PORT=5000
-DATABASE_URL=postgres://your_pg_user:your_pg_password@localhost:5432/infrasync_db
-JWT_SECRET=your_super_secret_jwt_key
+
+DATABASE_URL=postgres://username:password@localhost:5432/infrasync
+
+JWT_SECRET=your_secret_key
+
 JWT_EXPIRES_IN=24h
+
 NODE_ENV=development
-
 ```
 
 ---
 
-### 3. Database Setup
+# Install Dependencies
 
-1. Open your PostgreSQL terminal or pgAdmin tool and create the database:
-```sql
-CREATE DATABASE infrasync_db;
-
-```
-
-
-2. Run database migrations and seed scripts (if applicable):
-```bash
-npm run db:migrate
-
-```
-
-
-
----
-
-### 4. Installation & Execution
-
-#### Backend Setup
+## Backend
 
 ```bash
-# Navigate to backend directory (if separate)
 cd server
-npm install
-npm run dev
 
+npm install
 ```
 
-#### Frontend Setup
+## Frontend
 
 ```bash
-# Open a new terminal window, navigate to frontend directory
 cd client
-npm install
-npm start
 
+npm install
 ```
 
 ---
 
-## 📌 API Endpoints Overview
+# Run the Application
 
-| Method | Endpoint | Description | Access Level |
-| --- | --- | --- | --- |
-| `POST` | `/api/auth/register` | Register a new user | Public |
-| `POST` | `/api/auth/login` | Authenticate & retrieve JWT token | Public |
-| `GET` | `/api/facilities` | Fetch all available facilities | Authenticated |
-| `POST` | `/api/tickets` | Create a new maintenance ticket | User / Manager |
-| `GET` | `/api/admin/metrics` | Retrieve system analytics & statistics | Admin |
+## Backend
 
----
+```bash
+cd server
 
-## 🎯 Technical Highlights for Recruiters
-
-* **Database Performance:** Scaled and normalized PostgreSQL schema avoiding redundancy and ensuring high transactional integrity.
-* **Security Best Practices:** Password hashing via bcrypt, environment abstraction, dynamic middleware authorization, and sanitized queries against SQL injections.
-* **Maintainable Architecture:** Clean separation of concerns (Controllers, Models, Routes, Middlewares).
+npm run dev
+```
 
 ---
 
-## 🛠️ My Role & Contributions: Core Database Engineer
+## Frontend
 
-As the Database Architect for InfraSync, I designed and implemented the entire database layer from scratch:
-- **Schema Architecture:** Designed a heavily normalized PostgreSQL database schema with 15+ tables.
-- **Data Integrity:** Configured foreign key relationships, cascades, and check constraints to guarantee ACID compliance and zero data redundancy.
-- **Performance:** Designed strategic indexing on frequently queried columns (User IDs, Ticket Status, Timestamps) to ensure sub-100ms query execution.
-- **Security:** Built server-side validation and prepared statements to protect against SQL Injection attacks.
-## 👩‍💻 Author
+```bash
+cd client
+
+npm start
+```
+
+---
+
+# Database Setup
+
+Create Database
+
+```sql
+CREATE DATABASE infrasync;
+```
+
+Run migrations (if available)
+
+```bash
+npm run migrate
+```
+
+Run seed files (if available)
+
+```bash
+npm run seed
+```
+
+---
+
+# API Endpoints
+
+## Authentication
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| POST | /api/auth/register | Register User |
+| POST | /api/auth/login | Login |
+
+---
+
+## Apartments
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | /api/apartments | Get Apartments |
+| POST | /api/apartments | Add Apartment |
+| PUT | /api/apartments/:id | Update Apartment |
+| DELETE | /api/apartments/:id | Delete Apartment |
+
+---
+
+## Residents
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | /api/residents | Get Residents |
+| POST | /api/residents | Add Resident |
+
+---
+
+## Maintenance
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | /api/maintenance | Get Requests |
+| POST | /api/maintenance | Create Request |
+| PUT | /api/maintenance/:id | Update Status |
+
+---
+
+## Visitors
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | /api/visitors | Visitor List |
+| POST | /api/visitors | Register Visitor |
+
+---
+
+## Parking
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | /api/parking | Parking List |
+| POST | /api/parking | Allocate Parking |
+
+---
+
+## Bookings
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | /api/bookings | Get Bookings |
+| POST | /api/bookings | Book Amenity |
+
+---
+
+## Dashboard
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | /api/admin/dashboard | Dashboard Statistics |
+
+---
+
+# 🔒 Security Features
+
+- JWT Authentication
+- Password Hashing using bcrypt
+- Protected Routes
+- Role-Based Authorization
+- SQL Injection Prevention
+- Environment Variables
+- CORS Configuration
+- Input Validation
+
+---
+
+# ⚡ Performance Optimizations
+
+- PostgreSQL Indexing
+- Optimized SQL Queries
+- Connection Pooling
+- Modular Express Architecture
+- Efficient REST APIs
+- Lazy Loaded React Components
+
+---
+
+# 🎯 Highlights
+
+- Full-Stack MERN-style Architecture (React + Node + PostgreSQL)
+- JWT Authentication & Authorization
+- PostgreSQL Database with 15+ Tables
+- Normalized Relational Schema
+- RESTful API Design
+- MVC Backend Architecture
+- Responsive React Frontend
+- Secure Authentication
+- Scalable Project Structure
+
+---
+
+# 👨‍💻 My Role – Database Designer & Administrator
+
+I was responsible for designing and managing the complete database layer of the project.
+
+### My Contributions
+
+- 🗄️ Designed and implemented a normalized PostgreSQL database schema with **15+ relational tables**.
+- 🔗 Established foreign key relationships to maintain referential integrity across the database.
+- 📋 Created primary keys, unique constraints, check constraints, and cascade rules to ensure data consistency.
+- 📊 Designed an efficient relational model for apartments, residents, maintenance requests, visitors, parking, and amenity bookings.
+- ⚡ Optimized database performance by creating indexes on frequently queried columns.
+- 🔄 Managed database connections and configuration between the Node.js backend and PostgreSQL.
+- 💾 Created and maintained SQL scripts for database creation, schema updates, and data management.
+- 🛡️ Ensured ACID-compliant transactions and data integrity throughout the system.
+- 📈 Structured the database to support scalable CRUD operations and future feature expansion.
+
+
+
+# 🚀 Future Enhancements
+
+- Online Maintenance Payments
+- Email Notifications
+- Push Notifications
+- QR Code Visitor Passes
+- Resident Mobile App
+- Real-Time Chat
+- Complaint Analytics
+- AI-Based Maintenance Prediction
+
+---
+
+# 📸 Screenshots
+
+> Add screenshots of your application here.
+
+```
+Home Page
+
+Dashboard
+
+Resident Management
+
+Maintenance Requests
+
+Visitor Management
+
+Apartment List
+```
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repository
+
+2. Create your feature branch
+
+```bash
+git checkout -b feature/NewFeature
+```
+
+3. Commit changes
+
+```bash
+git commit -m "Add new feature"
+```
+
+4. Push branch
+
+```bash
+git push origin feature/NewFeature
+```
+
+5. Open a Pull Request
+
+---
+
+# 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+# 👤 Author
 
 **Trushi Jasani**
 
-* **GitHub:** [@trushi-jasani](https://github.com/trushi-jasani)
-* **LinkedIn:** [Trushi Jasani](https://www.linkedin.com/in/trushi-jasani-672396360/)
-* **Email:** jasanitrushi@gmail.com
+- GitHub: https://github.com/trushi-jasani
+- LinkedIn: https://www.linkedin.com/in/trushi-jasani
+- Email: jasanitrushi@gmail.com
+
+---
